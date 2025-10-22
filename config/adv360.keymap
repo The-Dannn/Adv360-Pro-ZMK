@@ -20,6 +20,68 @@
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
       };
+
+      // --- Modern mod-morph behaviors for swapping symbols and numbers ---
+      morp_1_sym: morp_1_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp EXCL>, <&kp N1>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_2_sym: morp_2_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp AT>, <&kp N2>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_3_sym: morp_3_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp HASH>, <&kp N3>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_4_sym: morp_4_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp DLLR>, <&kp N4>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_5_sym: morp_5_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp PERCENT>, <&kp N5>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_6_sym: morp_6_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp CARET>, <&kp N6>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_7_sym: morp_7_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp AMPS>, <&kp N7>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_8_sym: morp_8_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp STAR>, <&kp N8>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_9_sym: morp_9_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp LPAR>, <&kp N9>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
+      morp_0_sym: morp_0_sym {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp RPAR>, <&kp N0>;
+          mods = <(MOD_LSFT | MOD_RSFT)>;
+      };
     };
 
   keymap {
@@ -28,13 +90,14 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp EQUAL &excl_sym &at_sym  &hash_sym &dllr_sym &percent_sym &tog 1                                                     &mo 3 &caret_sym &amps_sym &star_sym &lpar_sym &rpar_sym &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y     &kp U    &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H     &kp J    &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N     &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE                 &kp UP   &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp EQUAL &morp_1_sym &morp_2_sym &morp_3_sym &morp_4_sym &morp_5_sym &tog 1                                                &mo 3 &morp_6_sym &morp_7_sym &morp_8_sym &morp_9_sym &morp_0_sym &kp MINUS
+        &kp TAB   &kp Q       &kp W       &kp E       &kp R       &kp T        &none                                                 &none &kp Y        &kp U       &kp I       &kp O       &kp P       &kp BSLH
+        &kp ESC   &kp A       &kp S       &kp D       &kp F       &kp G        &none           &kp LCTRL &kp LALT &kp LGUI &kp RCTRL &none &kp H        &kp J       &kp K       &kp L       &kp SEMI   &kp SQT
+        &kp LSHFT &kp Z       &kp X       &kp C       &kp V       &kp B                            &kp HOME &kp PG_UP                        &kp N        &kp M       &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+        &mo 2     &kp GRAVE   &kp CAPS    &kp LEFT    &kp RIGHT                 &kp BSPC &kp DEL &kp END  &kp PG_DN &kp ENTER &kp SPACE               &kp UP      &kp DOWN   &kp LBKT  &kp RBKT  &mo 2
       >;
     };
+
     keypad {
       display-name = "Kp";
       bindings = <
@@ -45,6 +108,7 @@
         &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
       >;
     };
+
     fn {
       display-name = "Fn";
       bindings = <
@@ -55,6 +119,7 @@
         &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
       >;
     };
+
     mod {
       display-name = "Mod";
       bindings = <
@@ -65,24 +130,10 @@
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
       >;
     };
-    extra1 { 
-      display-name = "Red";    
-      status = "reserved";
-    };
 
-    extra2 { 
-      display-name = "Purple";    
-      status = "reserved";
-    };
-
-    extra3 { 
-      display-name = "Cyan";    
-      status = "reserved";
-    };
-
-    extra4 { 
-      display-name = "Yellow";    
-      status = "reserved";
-    };
+    extra1 { display-name = "Red"; status = "reserved"; };
+    extra2 { display-name = "Purple"; status = "reserved"; };
+    extra3 { display-name = "Cyan"; status = "reserved"; };
+    extra4 { display-name = "Yellow"; status = "reserved"; };
   };
 };
