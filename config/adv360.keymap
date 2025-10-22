@@ -25,7 +25,7 @@
       morp_1_sym: morp_1_sym {
           compatible = "zmk,behavior-mod-morph";
           #binding-cells = <0>;
-          bindings = <&kp EXCL>, <&kp N1>;
+          bindings = <&kp EXCLAMATION>, <&kp N1>;
           mods = <(MOD_LSFT | MOD_RSFT)>;
       };
       morp_2_sym: morp_2_sym {
